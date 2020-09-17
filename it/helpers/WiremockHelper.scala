@@ -48,7 +48,6 @@ trait WiremockHelper {
 
   import WiremockHelper._
   implicit val system = ActorSystem("my-system")
-  implicit val materializer = ActorMaterializer()
   lazy val ws = app.injector.instanceOf[WSClient]
 
   lazy val wmConfig = wireMockConfig().port(wiremockPort)
