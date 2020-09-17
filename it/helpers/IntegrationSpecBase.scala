@@ -2,19 +2,18 @@ package helpers
 
 import akka.http.scaladsl.model.HttpResponse
 import app.{AppConfig, ApplicationConfig}
-import com.google.inject.{Inject, Injector, Provider}
 import org.scalatest._
 import org.scalatest.concurrent.{Eventually, IntegrationPatience, ScalaFutures}
+import org.scalatest.wordspec.AnyWordSpec
 import org.scalatestplus.play.guice.GuiceOneServerPerSuite
-import play.api.inject.ConfigurationProvider
-import play.api.inject.guice.GuiceApplicationBuilder
-import play.api.{Application, Configuration, Environment, Mode}
+import play.api.Application
 import play.api.inject.bind
-
+import play.api.inject.guice.GuiceApplicationBuilder
+import org.scalatest.matchers.should.Matchers
 import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, Future}
-import play.api.inject.guice.GuiceInjectorBuilder
-trait IntegrationSpecBase extends WordSpec
+
+trait IntegrationSpecBase extends AnyWordSpec
   with GivenWhenThen with TestSuite with ScalaFutures with IntegrationPatience with Matchers
   with WiremockHelper
   with GuiceOneServerPerSuite
